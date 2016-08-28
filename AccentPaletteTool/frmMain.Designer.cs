@@ -1,4 +1,4 @@
-﻿namespace AccentPaletteTool_10586
+﻿namespace AccentPaletteTool
 {
     partial class frmMain
     {
@@ -43,6 +43,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnRestartExplorer = new System.Windows.Forms.Button();
             this.tt = new System.Windows.Forms.ToolTip(this.components);
+            this.lnkAccentColorMenu = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // p00_02
@@ -194,11 +195,23 @@
             this.btnRestartExplorer.UseVisualStyleBackColor = true;
             this.btnRestartExplorer.Click += new System.EventHandler(this.btnRestartExplorer_Click);
             // 
+            // lnkAccentColorMenu
+            // 
+            this.lnkAccentColorMenu.AutoSize = true;
+            this.lnkAccentColorMenu.Location = new System.Drawing.Point(12, 236);
+            this.lnkAccentColorMenu.Name = "lnkAccentColorMenu";
+            this.lnkAccentColorMenu.Size = new System.Drawing.Size(185, 15);
+            this.lnkAccentColorMenu.TabIndex = 4;
+            this.lnkAccentColorMenu.TabStop = true;
+            this.lnkAccentColorMenu.Text = "AccentColorMenu (title bar color)";
+            this.lnkAccentColorMenu.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkAccentColorMenu_LinkClicked);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(400, 240);
+            this.ClientSize = new System.Drawing.Size(400, 260);
+            this.Controls.Add(this.lnkAccentColorMenu);
             this.Controls.Add(this.btnRestartExplorer);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
@@ -217,7 +230,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AccentPalette Tool for 10586";
+            this.Text = "AccentPalette Tool for 14393";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,6 +254,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnRestartExplorer;
         private System.Windows.Forms.ToolTip tt;
+        private System.Windows.Forms.LinkLabel lnkAccentColorMenu;
     }
 }
 

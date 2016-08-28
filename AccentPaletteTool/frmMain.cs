@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.Win32;
 
-namespace AccentPaletteTool_10586
+namespace AccentPaletteTool
 {
     public partial class frmMain : Form
     {
@@ -12,7 +12,6 @@ namespace AccentPaletteTool_10586
         const long MIN_LEN_OF_BIN = 0x20;
 
         byte[] bin;
-        ColorDialog colorDlg = new ColorDialog();
 
         string binToString()
         {
@@ -136,7 +135,8 @@ namespace AccentPaletteTool_10586
         public frmMain()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -148,11 +148,11 @@ namespace AccentPaletteTool_10586
         private void colorPanel_MouseClick(object sender, MouseEventArgs e)
         {
             Panel p = (Panel)sender;
-            colorDlg.Color = p.BackColor;
-            colorDlg.FullOpen = true;
-            if (colorDlg.ShowDialog() == DialogResult.OK)
+            Program.colorDlg.Color = p.BackColor;
+            Program.colorDlg.FullOpen = true;
+            if (Program.colorDlg.ShowDialog() == DialogResult.OK)
             {
-                p.BackColor = colorDlg.Color;
+                p.BackColor = Program.colorDlg.Color;
                 colorPanelToBin();
                 txtAPVal.Text = binToString();
             }
@@ -203,7 +203,7 @@ namespace AccentPaletteTool_10586
             else
             {
                 MessageBox.Show(
-                    "Cannot load the value of AccentPalette!\nAre you sure you're using Windows 10 Build 10586?",
+                    "Cannot load the value of AccentPalette!\nAre you sure you're using Windows 10 build 14393?",
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
@@ -216,10 +216,6 @@ namespace AccentPaletteTool_10586
             {
                 var Key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Accent", true);
                 Key.SetValue("AccentPalette", bin, RegistryValueKind.Binary);
-                // Must change this value, else Explorer's Modern Floating wouldn't update
-                var rnd = new Random();
-                int rDword = -1 - rnd.Next(0, 0xFFFFFF);
-                Key.SetValue("AccentColorMenu", rDword,RegistryValueKind.DWord);
                 MessageBox.Show(
                     "Saved to registry successfully!",
                     "OK!",
@@ -244,6 +240,13 @@ namespace AccentPaletteTool_10586
             if (e.KeyCode == Keys.Apps) SaveToFile();
         }
 
-
+        private void lnkAccentColorMenu_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // By observing Win10 built-in color scheme, I found that the color of active title bar
+            // is always the same as the 4th value of AccentPalette, though they can be different
+            // by editing registry manually.
+            Program.acmDlg.ColorForActiveToFollow = p0C_0E.BackColor;
+            Program.acmDlg.ShowDialog();
+        }
     }
 }

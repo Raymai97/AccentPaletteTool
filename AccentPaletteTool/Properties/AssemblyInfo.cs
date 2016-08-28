@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AccentPaletteTool_10586")]
-[assembly: AssemblyDescription("Handy tool to change the AccentPalette in Win10 Build 10586")]
+[assembly: AssemblyTitle("AccentPaletteTool_14393")]
+[assembly: AssemblyDescription("Handy tool to change the AccentPalette in Win10 Build 14393")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("MaiSoft")]
-[assembly: AssemblyProduct("AccentPaletteTool_10586")]
-[assembly: AssemblyCopyright("Copyright © MaiSoft 2015")]
+[assembly: AssemblyProduct("AccentPaletteTool_14393")]
+[assembly: AssemblyCopyright("Copyright © MaiSoft 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]

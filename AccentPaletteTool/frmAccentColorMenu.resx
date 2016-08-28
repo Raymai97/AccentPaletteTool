@@ -117,7 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="lblInfo.Text" xml:space="preserve">
+    <value>In build 14393, this value decides the color of title bar and border.
+While theoretically the change should take effect immediately,
+the border color wouldn't update until you restart Explorer.
+
+Note that Win10 doesn't accept some color.
+If your color is not accepted, it will use the default blue color instead.</value>
+  </data>
 </root>
